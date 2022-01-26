@@ -12,3 +12,5 @@ jobs:
           python-version: '3.7'
       - name: Install requirements
         run: pip install flake8 pycodestyle
+      - name: Check syntax
+        run: flake8 $(git diff --name-status) --count --statistics --show-source --exit-zero
