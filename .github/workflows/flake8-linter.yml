@@ -7,10 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v2
         with:
           python-version: '3.7'
       - name: Install requirements
         run: pip install flake8 pycodestyle
       - name: Check syntax
-        run: flake8 --count --statistics --show-source --exit-zero
+        run: flake8 $(git diff ${{ github.event.pull_request.base.sha }} ${{ github.sha }} --name-status) --count --statistics --show-source --exit-zero
