@@ -19,4 +19,4 @@ jobs:
       - name: Check git files
         run: | 
           #git diff --name-status
-          git --version
+          git diff
