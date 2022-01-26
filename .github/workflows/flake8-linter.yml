@@ -16,9 +16,3 @@ jobs:
         run: pip install flake8 pycodestyle
       - name: Check syntax
         run: flake8 $(git diff ${{ github.event.pull_request.base.sha }} ${{ github.sha }} --name-status) --count --statistics --show-source --exit-zero
-      - name: Check syntax 1
-        run: flake8 manage.py --count --statistics --show-source --exit-zero
-      - name: Check git files
-        run: | 
-          #git diff --name-status
-          git diff ${{ github.event.pull_request.base.sha }} ${{ github.sha }} --name-status
