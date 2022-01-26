@@ -18,4 +18,5 @@ jobs:
         run: flake8 manage.py --count --statistics --show-source --exit-zero
       - name: Check git files
         run: | 
-          git diff --name-status
+          #git diff --name-status
+          git --version
